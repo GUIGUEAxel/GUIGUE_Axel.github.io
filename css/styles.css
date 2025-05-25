@@ -1,0 +1,731 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --header-height: 3.5rem;
+    --first-hue: 350; /* Rouge vif */
+    --sat: 80%;
+    --lig: 60%;
+    --second-hue: 30; /* Jaune doré */
+    --first-color: hsl(var(--first-hue), var(--sat), var(--lig));
+    --first-color-alt: hsl(var(--first-hue), var(--sat), 75%); /* -5% */
+    --title-color: hsl(var(--second-hue), 15%, 95%);
+    --text-color: hsl(var(--second-hue), 15%, 65%);
+    --text-color-light: hsl(var(--second-hue), 10%, 45%);
+    --body-color: hsl(var(--second-hue), 0%, 12%);
+    --container-color: hsl(var(--second-hue), 30%, 18%);
+    --body-font: 'Poppins', sans-serif;
+    --biggest-font-size: 1.75rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+    --tiny-font-size: .652rem;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --z-tooltip: 10;
+    --z-fixed: 100;
+    --z-modal: 1000;
+}
+
+
+    
+@media screen and (min-width: 968px){
+    :root{
+        --biggest-font-size: 2.5rem;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+    }
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--body-color);
+    color: #e0e0e0; /* Texte clair */
+}
+.container{
+    max-width: 968px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+/* Début du style pour le header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--body-color); /* Couleur de fond du header */
+    z-index: var(--z-fixed);
+    transition: .4s;
+}
+/* Style pour le conteneur du menu de navigation */
+.nav {
+    height: var(--header-height); /* Hauteur du header */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+/* Style pour le logo du header ( mon nom ) */
+.nav__logo {
+    color: var(--first-color); /* Couleur du logo */
+    font-weight: var(--font-medium);
+    transition: .4s;
+    text-decoration: none;
+
+}
+/* Changement de couleur du logo lors du survol */
+.nav__logo:hover {
+    color: var(--first-color-alt); /* Couleur du logo au survol */
+}
+
+
+/* Style pour le menu de navigation */
+.nav__menu {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    bottom: 1rem;
+    background-color: hsla(var(--second-hue), 32%, 16%, .8); /* Fond du menu */
+    width: 90%;
+    border-radius: 4rem;
+    padding: 1rem 2.25rem;
+    backdrop-filter: blur(10px); /* Effet flou */
+    transition: .4s;
+}
+/* Liste du menu de navigation */
+.nav__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav__link{
+    color: var(--text-color);
+    font-size: 1.25rem;
+    padding: .4rem;
+    display: flex;
+    border-radius: 5rem;
+}
+.active-link{
+    background: linear-gradient(180deg,
+                hsla(var(--first-hue), var(--sat), var(--lig), 1),
+                hsla(var(--first-hue), var(--sat), var(--lig), .2)
+                );
+    color: var(--title-color);
+    padding: .7rem;
+}
+
+/* Style pour les liens de navigation */
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+/* Style pour les éléments de la liste de navigation */
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+/* Style pour les liens dans le menu */
+nav ul li a {
+    color: #e0e0e0; /* Couleur des liens du menu */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+/* Couleur des liens lors du survol */
+nav ul li a:hover {
+    color: #1abc9c; /* Couleur des liens au survol */
+}
+
+@media screen and (min-width: 576px) {
+     /* Style du menu de navigation sur grands écrans */
+    .nav__menu {
+        width: 328px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
+    /* Style des liens dans les sections sociales */
+    .home__social-link {
+        width: max-content;
+        background-color: var(--container-color);
+        color: var(--first-color);
+        padding: .25rem;
+        border-radius: .25rem;
+        display: flex;
+        font-size: 1rem;
+        transition: .4s;
+    }
+
+    
+}
+/* Fin du style pour le header */
+
+/*entête*/
+.section__subtitle {
+    display: block;
+    font-size: var(--smaller-font-size);
+    color: var(--text-color-light);
+    text-align: center;
+}
+
+.section__title {
+    text-align: center;
+    font-size: var(--h2-font-size);
+    color: var(--first-color)
+}
+
+ .mySection{
+    padding: 2rem;
+}
+/*fin d'entête*/
+
+/*  Partie sur la présentation */
+.about__container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 3rem;
+  text-align: center;
+}
+
+.about__description {
+  color: var(--text-color);
+  line-height: 1.7;
+  font-size: var(--normal-font-size);
+  margin-bottom: 2rem;
+}
+
+.about__info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.about__box {
+  background-color: var(--container-color);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.about__icon {
+  font-size: 2rem;
+  color: var(--first-color);
+  margin-bottom: 0.75rem;
+}
+
+.about__info-title {
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-semibold);
+  color: var(--title-color);
+}
+
+.about__info-detail {
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+}
+
+.about__button {
+  margin-top: 1rem;
+}
+
+
+/* Fin de la partie sur la présentation */
+
+/* Partie sur les compétences */
+
+
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.skills__category {
+  background-color: var(--container-color);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.skills__title {
+  color: var(--first-color);
+  margin-bottom: 1.5rem;
+  font-size: var(--h3-font-size);
+  text-align: center;
+}
+
+.skills__content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Deux colonnes dans chaque bloc */
+  gap: 1rem 2rem;
+}
+
+.skills__data {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.skills__icon {
+  font-size: 1.75rem;
+  color: var(--first-color);
+  min-width: 1.75rem;
+}
+
+.skills__name {
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-semibold);
+  color: var(--title-color);
+}
+
+.skills__level {
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+}
+
+@media screen and (max-width: 576px) {
+  .skills__content {
+    grid-template-columns: 1fr; /* Une colonne en mobile */
+  }
+}
+
+
+/* Fin de la partie sur les compétences */
+/*Grille avec tous les projets*/
+.work__container {
+    justify-content: center;
+    grid-template-columns: repeat(3, max-content);
+    padding-top: 1rem
+}
+.grid {
+    display: grid;
+    gap: 1.25rem;
+}
+
+/* Carte individuelle */
+.work__card{
+    background-color: var(--container-color);
+    padding: 1rem;
+    border-radius: 1rem;
+}
+.work__card{
+    padding: 1.25rem;
+}
+.work__button-modal {
+    color: var(--first-color);
+    font-size: var(--smaller-font-size);
+    display: flex;
+    align-items: center;
+    column-gap: .25rem;
+    cursor: pointer;
+    margin-top: .5rem;
+}
+
+/*fin carte individuel*/
+/* Partie experiance */
+.experience__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.experience__card {
+  background-color: var(--container-color);
+  border-left: 4px solid var(--first-color);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+
+.experience__card:hover {
+  transform: translateY(-5px);
+}
+
+.experience__tag {
+  background-color: var(--first-color);
+  color: var(--title-color);
+  font-size: var(--tiny-font-size);
+  padding: 0.2rem 0.75rem;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.experience__title {
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-semibold);
+  color: var(--title-color);
+  margin-bottom: 0.25rem;
+}
+
+.experience__date {
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.experience__desc {
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+
+/* Fin de la partie sur l'expérience */
+
+/* Partie sur les style des projets */
+/* Grille pour les cartes */
+.work__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Carte projet */
+.work__card {
+  background-color: var(--container-color);
+  padding: 1rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Image du projet */
+.work__img {
+  width: 100%;
+  height: 255px; /* taille fixe */
+  object-fit: cover;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+/* Style de la modale */
+.work__modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+}
+
+/* Classe active pour la modale */
+.active-modal {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Contenu de la modale */
+.services__modal-content {
+    position: relative;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    width: 500px;
+    max-width: 90%;
+}
+
+/* Bouton de fermeture */
+.work__modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    color: gray;
+    cursor: pointer;
+}
+
+/* Applique une modale claire */
+.services__modal-content.light-theme {
+  background-color: #fff;                /* fond blanc */
+  color: #1a1a1a;                        /* texte foncé */
+}
+
+/* Forcer le texte à bien s'afficher */
+.services__modal-content.light-theme p,
+.services__modal-content.light-theme li,
+.services__modal-content.light-theme h3 {
+  color: #1a1a1a;
+}
+
+/* Lien bouton dans la modale */
+.services__modal-content.light-theme .work__button {
+  background-color: var(--first-color);
+  color: white;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.services__modal-content.light-theme .work__button:hover {
+  background-color: var(--first-color-alt);
+}
+
+/* Fermer (croix) dans la modale claire */
+.services__modal-content.light-theme .work__modal-close {
+  color: #333;
+}
+/* fin de style modal*/
+
+
+/* contact section */
+.contact__container {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding-top: 2rem;
+}
+
+.contact__content {
+    background-color: var(--container-color);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.contact__title {
+    font-size: var(--h3-font-size);
+    color: var(--first-color);
+    margin-bottom: 1.5rem;
+}
+
+/* ----- CONTACT SECTION (3 cartes) ----- */
+
+.contact__info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.contact__card {
+  background-color: var(--container-color);
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.contact__card:hover {
+  transform: translateY(-5px);
+}
+
+.contact__card-icon {
+  font-size: 2rem;
+  color: var(--first-color);
+  margin-bottom: 1rem;
+}
+
+.contact__card-title {
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-semibold);
+  color: var(--title-color);
+}
+
+.contact__card-data {
+  display: block;
+  margin: 0.5rem 0 1rem;
+  color: var(--text-color-light);
+  font-size: var(--small-font-size);
+  word-break: break-all;
+}
+
+.contact__button {
+  font-size: var(--small-font-size);
+  color: var(--first-color);
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: color 0.3s;
+}
+
+.contact__button:hover {
+  color: var(--first-color-alt);
+}
+
+.contact__button-icon {
+  font-size: 1rem;
+}
+
+.button.submit {
+    background-color: var(--first-color);
+    color: var(--title-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    border: none;
+    cursor: pointer;
+    font-size: var(--normal-font-size);
+    transition: background-color 0.3s;
+}
+
+.button.submit:hover {
+    background-color: var(--first-color-alt);
+}
+
+.Contact {
+    margin-bottom: 4rem;
+}
+
+/*style pour le Footer */
+.footer{
+    background-color: #f8d7b9;
+}
+
+.footer__container{
+    padding: 2rem 0 6rem;
+}
+
+.footer__title,
+.footer__link{
+    color: var(--body-color);
+}
+
+.footer__title{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.footer__list{
+    display: flex;
+    justify-content: center;
+    column-gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.footer__copy{
+    display: block;
+    margin-top: 2.5rem;
+    color: var(--container-color);
+    text-align: center;
+    font-size: var(--smaller-font-size);
+}
+/* Fin du style pour le footer */
+
+
+/* partie test */ 
+.home {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: var(--header-height);
+}
+
+.home__container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.home__title {
+  font-size: 2.5rem;
+  color: var(--title-color);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.accent {
+  color: var(--first-color); /* rouge/orangé vif */
+}
+
+.home__subtitle {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.home__description {
+  font-size: 1rem;
+  color: var(--text-color-light);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.home__button {
+  background-color: var(--first-color);
+  color: var(--title-color);
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  font-weight: 600;
+}
+
+.home__button:hover {
+  background-color: var(--first-color-alt);
+}
+
+
+.home__initials {
+  width: 180px;
+  height: 180px;
+  background-color: var(--first-color);
+  color: var(--title-color);
+  font-size: 4rem;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+}
+
+
+.home__intro {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
