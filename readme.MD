@@ -78,7 +78,7 @@ Il permet de s’assurer que les interactions du site restent fonctionnelles apr
 
 Clonez le repository :
 
-git clone https://github.com/ton-username/portfolio.git
+git clone https://github.com/GUIGUEAxel/GUIGUE_Axel.github.io.git
 cd portfolio
 
 
@@ -102,8 +102,9 @@ Utiliser la CI pour automatiser la validation du code
 📧 Me contacter
 
 Ton nom
-📬 tonemail@example.com
+📬 guigueaxel@gmail.com
 
-💼 LinkedIn : https://linkedin.com/in/tonprofil
+💼 LinkedIn : https://linkedin.com/in/axelguigue
 
 🌐 Portfolio en ligne : https://tonportfolio.com
+
