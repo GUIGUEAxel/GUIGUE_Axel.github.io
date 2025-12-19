@@ -54,3 +54,12 @@ modalClose.forEach((close) =>{
         })
     })
 })
+
+// Fermeture en cliquant à l'extérieur de la modale
+modalViews.forEach((modal) => {
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {  // Si on clique sur le fond (pas sur le contenu)
+            modal.classList.remove('active-modal');
+        }
+    });
+});

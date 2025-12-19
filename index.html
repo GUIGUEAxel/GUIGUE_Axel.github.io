@@ -271,7 +271,7 @@
 
               <!-- Bloc de détails du projet -->
 <div class="work__modal">
-  <div class="services__modal-content light-theme">
+  <div class="services__modal-content dark-theme">
     <!-- Bouton de fermeture -->
     <i class='bx bx-x work__modal-close'></i>
 
@@ -347,7 +347,7 @@
 
             <!-- Modale -->
             <div class="work__modal">
-                <div class="services__modal-content light-theme">
+                <div class="services__modal-content dark-theme">
 
                 <!-- Bouton fermeture -->
                 <i class='bx bx-x work__modal-close'></i>
@@ -408,7 +408,7 @@
 
             <!-- Bloc de détails du projet -->
              <div class="work__modal">
-                <div class="services__modal-content light-theme">
+                <div class="services__modal-content dark-theme">
                 <!-- Bouton fermeture -->
                 <i class='bx bx-x work__modal-close'></i>
 
@@ -475,7 +475,7 @@
 
             <!-- Bloc de détails du projet -->
             <div class="work__modal">
-                <div class="services__modal-content light-theme">
+                <div class="services__modal-content dark-theme">
                 <!-- Fermeture -->
                 <i class='bx bx-x work__modal-close'></i>
 
@@ -536,7 +536,7 @@
 
             <!-- Bloc de détails du projet -->
             <div class="work__modal">
-                <div class="services__modal-content light-theme">
+                <div class="services__modal-content dark-theme">
                 <!-- Fermeture -->
                 <i class='bx bx-x work__modal-close'></i>
 
@@ -588,6 +588,80 @@
                 </div>
             </div>
         </div> <!-- Fin de carte individuel -->
+
+
+        <div class="work__card mix prototype">
+            <img src="assets/img/Projet/DroneGarden.png" alt="Drone Garden Technical View" class="work__img">
+
+            <h3 class="work__title">Drone Garden | Jeu de Gestion 3D (Unity)</h3>
+
+            <span class="work__button-modal">
+                Voir plus <i class='bx bx-right-arrow-alt services__icon'></i>
+            </span>
+
+            <div class="work__modal">
+                <div class="services__modal-content dark-theme">
+                    <i class='bx bx-x work__modal-close'></i>
+
+                    <h3 class="services__modal-title">Drone Garden : Engineering & Release</h3>
+
+                    <h4 style="color: var(--first-color); margin-bottom: 0.8rem;">Concept & Boucle de Gameplay</h4>
+                    <p class="services__modal-info">
+                        Gestion horticole futuriste : le joueur pilote un drone et doit optimiser la plantation et la récolte via un système de score. L'enjeu repose sur la <strong>gestion de l'urgence</strong> : les légumes non récoltés explosent, créant une pénalité et une perte de ressources.
+                    </p>
+
+                    <h4 style="color: var(--first-color); margin: 1.5rem 0 0.8rem;">Architecture & Systèmes Avancés</h4>
+                    <ul class="services__modal-list">
+                        <li class="services__modal-item">
+                            <!-- <i class='bx bx-chip services__modal-icon'></i> -->
+                            <p class="services__modal-info">
+                                <strong>Finite State Machine (FSM) :</strong> Système d'états complexe pilotant les cycles de vie (Seed > Sprout > Mature > Overripe > Explode). Chaque transition est gérée par des événements pour déclencher feedbacks visuels et sonores de manière synchronisée.
+                            </p>
+                        </li>
+                        <li class="services__modal-item">
+                            <!-- <i class='bx bx-data services__modal-icon'></i> -->
+                            <p class="services__modal-info">
+                                <strong>Data-Driven (ScriptableObjects) :</strong> Centralisation des propriétés des végétaux (vitesse de pousse, valeur, meshs) permettant de modifier l'équilibrage du jeu sans altérer le code source.
+                            </p>
+                        </li>
+                        <li class="services__modal-item">
+                            <!-- <i class='bx bx-target-lock services__modal-icon'></i> -->
+                            <p class="services__modal-info">
+                                <strong>Système d'Interaction :</strong> Implémentation du <strong>Raycasting</strong> avec filtrage de LayerMasks pour une détection précise des parcelles et une gestion fluide des actions contextuelles du drone.
+                            </p>
+                        </li>
+                    </ul>
+
+                    <h4 style="color: var(--first-color); margin: 1.5rem 0 0.8rem;">UI & Pipeline de Production</h4>
+                    <ul class="services__modal-list">
+                        <li class="services__modal-item">
+                            <!-- <i class='bx bx-layer services__modal-icon'></i> -->
+                            <p class="services__modal-info">
+                                <strong>Système d'UI Modulaire :</strong> HUD dynamique, menus de pause et écrans de fin de partie conçus avec le Canvas System d'Unity, décorrélés de la logique de jeu (Pattern Observer).
+                            </p>
+                        </li>
+                        <li class="services__modal-item">
+                            <!-- <i class='bx bx-git-branch services__modal-icon'></i> -->
+                            <p class="services__modal-info">
+                                <strong>Workflow :</strong> Gestion de projet via <strong>Git</strong> (commits atomiques) et optimisation des ressources (LOD, compression des textures) pour une version WebGL fluide.
+                            </p>
+                        </li>
+                    </ul>
+
+                    <div style="margin-top: 2rem; padding: 1rem; border: 1px dashed var(--first-color); border-radius: 0.5rem; text-align: center;">
+                        <h4 style="margin-bottom: 0.5rem;">Disponible sur Itch.io</h4>
+                        <p class="services__modal-info">Le projet a été mené jusqu'à la publication d'une version jouable.</p>
+                        <a href="https://zarkgish.itch.io/dronegarden" target="_blank" class="work__button" style="display: inline-flex; align-items: center; column-gap: .25rem; margin-top: 0.5rem; color: white;">
+                            Jouer au jeu <i class='bx bx-link-external'></i>
+                        </a>
+                    </div>
+
+                    <p class="services__modal-info" style="margin-top: 1.5rem; font-size: var(--small-font-size); opacity: 0.7;">
+                        <strong>Technologies :</strong> Unity 3D, C#, ScriptableObjects, Raycasting, Particles System, WebGL.
+                    </p>
+                </div>
+            </div>
+        </div>
       </div> <!-- Fin de .work__container -->
     </section> <!-- Fin de la section Portfolio -->
 
