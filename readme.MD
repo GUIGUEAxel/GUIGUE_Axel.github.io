@@ -1,4 +1,4 @@
-📁 Portfolio – [Ton Nom]
+📁 Portfolio – Guigue Axel
 
 Ce portfolio présente mes projets, mon parcours et mes compétences en développement web.
 Il a été construit de manière à être simple, rapide et maintenable, tout en intégrant de bonnes pratiques modernes : tests unitaires, CI et structure de code propre.
@@ -101,7 +101,7 @@ Utiliser la CI pour automatiser la validation du code
 
 📧 Me contacter
 
-Ton nom
+Guigue Axel
 📬 guigueaxel@gmail.com
 
 💼 LinkedIn : https://linkedin.com/in/axelguigue
