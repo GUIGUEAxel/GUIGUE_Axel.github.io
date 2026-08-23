@@ -874,11 +874,17 @@ html {
    se retrouve piégée dans la carte. L'effet de relief passe par l'ombre. */
 .work__card {
   border: 1px solid transparent;
+  cursor: pointer;                 /* la carte entière est cliquable */
   transition: box-shadow .3s ease, border-color .3s ease;
 }
 .work__card:hover {
   box-shadow: 0 14px 34px rgba(0, 0, 0, .5);
   border-color: hsla(var(--first-hue), var(--sat), var(--lig), .55);
+}
+
+/* Bloque le défilement de la page quand une modale est ouverte */
+body.modal-open {
+  overflow: hidden;
 }
 .work__img {
   transition: transform .45s ease;
@@ -1019,7 +1025,6 @@ html {
   background: var(--first-color);
   border-radius: 8px;
 }
-
 .work__desc {
   color: var(--text-color);
   font-size: var(--small-font-size);

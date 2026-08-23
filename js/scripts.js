@@ -35,36 +35,44 @@ scrollActive() // état correct dès le chargement
 // Fin animation menu
 
 // On sélectionne tous les éléments nécessaires
-const modalViews = document.querySelectorAll('.work__modal'),      // Les fenêtres modales
-      modalBtns = document.querySelectorAll('.work__button-modal'),  // Les boutons "voir plus"
-      modalClose = document.querySelectorAll('.work__modal-close')   // Les boutons de fermeture
+const workCards = document.querySelectorAll('.work__card'),         // Les cartes projet
+      modalViews = document.querySelectorAll('.work__modal'),       // Les fenêtres modales
+      modalClose = document.querySelectorAll('.work__modal-close')  // Les boutons de fermeture
 
-// Fonction pour ouvrir la modale
-let modal = function(modalClick){
-    modalViews[modalClick].classList.add('active-modal')
+// Ferme toutes les modales et débloque le défilement de la page
+const closeModals = () =>{
+    modalViews.forEach((modal) => modal.classList.remove('active-modal'))
+    document.body.classList.remove('modal-open')
 }
 
-// Ajoute un écouteur d'événement à chaque bouton "voir plus"
-modalBtns.forEach((btn, i) =>{
-    btn.addEventListener('click', () =>{
-        modal(i)
+// La carte ENTIÈRE est cliquable : on ouvre la modale qui lui appartient
+workCards.forEach((card) =>{
+    const modal = card.querySelector('.work__modal')
+    if (!modal) return
+
+    card.addEventListener('click', (e) =>{
+        // On ignore les clics venant de l'intérieur de la modale
+        // (croix de fermeture, fond, liens) pour ne pas la rouvrir aussitôt.
+        if (e.target.closest('.work__modal')) return
+
+        modal.classList.add('active-modal')
+        document.body.classList.add('modal-open')  // bloque le scroll en arrière-plan
     })
 })
 
-// Ajoute un écouteur d'événement à chaque bouton de fermeture
+// Boutons de fermeture (la croix)
 modalClose.forEach((close) =>{
-    close.addEventListener('click', () =>{
-        modalViews.forEach((modal) =>{
-            modal.classList.remove('active-modal')
-        })
+    close.addEventListener('click', closeModals)
+})
+
+// Fermeture en cliquant sur le fond sombre (pas sur le contenu)
+modalViews.forEach((modal) =>{
+    modal.addEventListener('click', (e) =>{
+        if (e.target === modal) closeModals()
     })
 })
 
-// Fermeture en cliquant à l'extérieur de la modale
-modalViews.forEach((modal) => {
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {  // Si on clique sur le fond (pas sur le contenu)
-            modal.classList.remove('active-modal');
-        }
-    });
-});
+// Fermeture avec la touche Échap
+document.addEventListener('keydown', (e) =>{
+    if (e.key === 'Escape') closeModals()
+})
