@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guigue  Axel</title>
+    <title>Axel Guigue — Développeur junior</title>
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -18,33 +18,38 @@
           <div class="nav__menu">
             <ul class="nav__list">
               <li class="nav__item">
-                <a href="#home" class="nav__link active-link">
+                <a href="#home" class="nav__link active-link" aria-label="Accueil">
                   <i class="bx bx-home"></i>
                 </a>
               </li>
               <li class="nav__item">
-                <a href="#about" class="nav__link">
+                <a href="#about" class="nav__link" aria-label="À propos">
                   <i class="bx bx-user"></i>
                 </a>
               </li>
               <li class="nav__item">
-                <a href="#skills" class="nav__link">
+                <a href="#skills" class="nav__link" aria-label="Compétences">
                   <i class="bx bxs-book"></i>
                 </a>
               </li>
               <li class="nav__item">
-                <a href="#portfolio" class="nav__link">
+                <a href="#portfolio" class="nav__link" aria-label="Projets">
                   <i class="bx bx-briefcase-alt-2"></i>
                 </a>
               </li>
               <li class="nav__item">
-                <a href="#contact" class="nav__link">
+                <a href="#experience" class="nav__link" aria-label="Parcours">
+                  <i class="bx bx-line-chart"></i>
+                </a>
+              </li>
+              <li class="nav__item">
+                <a href="#contact" class="nav__link" aria-label="Contact">
                   <i class="bx bx-message-square-detail"></i>
                 </a>
               </li>
             </ul>
           </div>
-          <img width="100" height="100" src="./assets/img/Illustration/Logo_portfolio_transparent.png" alt="Logo"/>
+          <img width="200" height="200" src="./assets/img/Illustration/Logo_portfolio_transparent.png" alt="Logo"/>
         </nav>
       </header>
 
@@ -55,9 +60,9 @@
 <section class="home" id="home">
   <div class="home__container container">
     
-    <!-- Photo ou illustration oou autre pour habiller: TODO-->
+    <!-- Visuel du hero : initiales stylisées (remplaçable par une photo) -->
     <div class="home__image">
-        <!-- <div class="home__initials">AG</div> -->
+        <div class="home__initials">AG</div>
     </div>
 
     <div class="home__intro">
@@ -256,7 +261,353 @@
       <!-- Grille avec tous les projets -->
       <div class="work__container container grid">
 
-          <!-- Carte individuelle d'un projet -->
+        <!-- Carte projet -->
+        <div class="work__card mix prototype">
+            <img src="assets/img/Projet/BIWAPI.png" alt="Application de gestion du Club des Entrepreneurs Augmentés" class="work__img">
+
+            <h3 class="work__title">Application Club – BIWAPI</h3>
+            <p class="work__desc">Jeu de gestion 3D — pilotage d'un drone, publié sur Itch.io</p>
+            <div class="work__tags">
+                <span class="work__tag">Unity</span>
+                <span class="work__tag">C#</span>
+                <span class="work__tag">WebGL</span>
+            </div>
+
+            <span class="work__button-modal">
+                Voir plus <i class='bx bx-right-arrow-alt services__icon'></i>
+            </span>
+
+            <div class="work__modal">
+                <div class="services__modal-content dark-theme">
+                    <i class='bx bx-x work__modal-close'></i>
+
+                    <h3 class="services__modal-title">Application de gestion – Club des Entrepreneurs Augmentés</h3>
+
+                    <h4 style="color: var(--first-color); margin-bottom: 0.8rem;">Contexte &amp; mission</h4>
+                    <p class="services__modal-info">
+                        Stage de développeur <strong>full-stack</strong> chez BIWAPI. J'ai conçu et développé, <strong>en autonomie et de zéro</strong>, une application web de gestion pour un club d'entrepreneurs : un espace unique regroupant profils, agenda, annuaire et documents, mené jusqu'à la <strong>mise en production réelle</strong>.
+                    </p>
+
+                    <h4 style="color: var(--first-color); margin: 1.5rem 0 0.8rem;">Architecture &amp; fonctionnalités</h4>
+                    <ul class="services__modal-list">
+                        <li class="services__modal-item">
+                            <p class="services__modal-info">
+                                <strong>Application monopage (SPA) :</strong> front React / TypeScript, adossé à Supabase pour la base PostgreSQL, l'authentification et le stockage de fichiers.
+                            </p>
+                        </li>
+                        <li class="services__modal-item">
+                            <p class="services__modal-info">
+                                <strong>Rôles &amp; droits :</strong> système multi-club où chaque membre a des droits précis, sécurisés jusqu'en base de données par des politiques <strong>RLS (Row Level Security)</strong>.
+                            </p>
+                        </li>
+                        <li class="services__modal-item">
+                            <p class="services__modal-info">
+                                <strong>Modules métier :</strong> agenda partagé (React Big Calendar), annuaire des membres, gestion électronique de documents (GED) et tableau de bord.
+                            </p>
+                        </li>
+                    </ul>
+
+                    <h4 style="color: var(--first-color); margin: 1.5rem 0 0.8rem;">Mise en production &amp; DevOps</h4>
+                    <ul class="services__modal-list">
+                        <li class="services__modal-item">
+                            <p class="services__modal-info">
+                                <strong>Déploiement sécurisé :</strong> hébergement sur un VPS avec Supabase auto-hébergé, durcissement du serveur (pare-feu, SSH par clé) et reverse proxy <strong>Nginx + HTTPS</strong> — la base n'est jamais exposée directement.
+                            </p>
+                        </li>
+                        <li class="services__modal-item">
+                            <p class="services__modal-info">
+                                <strong>Prod / préprod :</strong> deux environnements séparés et un déploiement automatisé via <strong>GitLab CI/CD</strong>.
+                            </p>
+                        </li>
+                    </ul>
+
+                    <div style="margin-top: 2rem; padding: 1rem; border: 1px dashed var(--first-color); border-radius: 0.5rem; text-align: center;">
+                        <h4 style="margin-bottom: 0.5rem;">Mise en production réelle</h4>
+                        <p class="services__modal-info">Application mise en ligne et présentée au club, puis transmise à un nouveau développeur pour en assurer la continuité.</p>
+                    </div>
+
+                    <p class="services__modal-info" style="margin-top: 1.5rem; font-size: var(--small-font-size); opacity: 0.7;">
+                        <strong>Technologies :</strong> React, TypeScript, Supabase (PostgreSQL), GitLab CI/CD, Nginx, VPS.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+          <!-- Carte projet -->
+        <div class="work__card mix prototype">
+            <img src="assets/img/Projet/DroneGarden.png" alt="Drone Garden Technical View" class="work__img">
+
+            <h3 class="work__title">Drone Garden</h3>
+            <p class="work__desc">Jeu de gestion 3D — pilotage d'un drone, publié sur Itch.io</p>
+            <div class="work__tags">
+                <span class="work__tag">Unity</span>
+                <span class="work__tag">C#</span>
+                <span class="work__tag">WebGL</span>
+            </div>
+
+            <span class="work__button-modal">
+                Voir plus <i class='bx bx-right-arrow-alt services__icon'></i>
+            </span>
+
+            <div class="work__modal">
+                <div class="services__modal-content dark-theme">
+                    <i class='bx bx-x work__modal-close'></i>
+
+                    <h3 class="services__modal-title">Drone Garden : Engineering & Release</h3>
+
+                    <h4 style="color: var(--first-color); margin-bottom: 0.8rem;">Concept & Boucle de Gameplay</h4>
+                    <p class="services__modal-info">
+                        Gestion horticole futuriste : le joueur pilote un drone et doit optimiser la plantation et la récolte via un système de score. L'enjeu repose sur la <strong>gestion de l'urgence</strong> : les légumes non récoltés explosent, créant une pénalité et une perte de ressources.
+                    </p>
+
+                    <h4 style="color: var(--first-color); margin: 1.5rem 0 0.8rem;">Architecture & Systèmes Avancés</h4>
+                    <ul class="services__modal-list">
+                        <li class="services__modal-item">
+                            <!-- <i class='bx bx-chip services__modal-icon'></i> -->
+                            <p class="services__modal-info">
+                                <strong>Finite State Machine (FSM) :</strong> Système d'états complexe pilotant les cycles de vie (Seed > Sprout > Mature > Overripe > Explode). Chaque transition est gérée par des événements pour déclencher feedbacks visuels et sonores de manière synchronisée.
+                            </p>
+                        </li>
+                        <li class="services__modal-item">
+                            <!-- <i class='bx bx-data services__modal-icon'></i> -->
+                            <p class="services__modal-info">
+                                <strong>Data-Driven (ScriptableObjects) :</strong> Centralisation des propriétés des végétaux (vitesse de pousse, valeur, meshs) permettant de modifier l'équilibrage du jeu sans altérer le code source.
+                            </p>
+                        </li>
+                        <li class="services__modal-item">
+                            <!-- <i class='bx bx-target-lock services__modal-icon'></i> -->
+                            <p class="services__modal-info">
+                                <strong>Système d'Interaction :</strong> Implémentation du <strong>Raycasting</strong> avec filtrage de LayerMasks pour une détection précise des parcelles et une gestion fluide des actions contextuelles du drone.
+                            </p>
+                        </li>
+                    </ul>
+
+                    <h4 style="color: var(--first-color); margin: 1.5rem 0 0.8rem;">UI & Pipeline de Production</h4>
+                    <ul class="services__modal-list">
+                        <li class="services__modal-item">
+                            <!-- <i class='bx bx-layer services__modal-icon'></i> -->
+                            <p class="services__modal-info">
+                                <strong>Système d'UI Modulaire :</strong> HUD dynamique, menus de pause et écrans de fin de partie conçus avec le Canvas System d'Unity, décorrélés de la logique de jeu (Pattern Observer).
+                            </p>
+                        </li>
+                        <li class="services__modal-item">
+                            <!-- <i class='bx bx-git-branch services__modal-icon'></i> -->
+                            <p class="services__modal-info">
+                                <strong>Workflow :</strong> Gestion de projet via <strong>Git</strong> (commits atomiques) et optimisation des ressources (LOD, compression des textures) pour une version WebGL fluide.
+                            </p>
+                        </li>
+                    </ul>
+
+                    <div style="margin-top: 2rem; padding: 1rem; border: 1px dashed var(--first-color); border-radius: 0.5rem; text-align: center;">
+                        <h4 style="margin-bottom: 0.5rem;">Disponible sur Itch.io</h4>
+                        <p class="services__modal-info">Le projet a été mené jusqu'à la publication d'une version jouable.</p>
+                        <a href="https://zarkgish.itch.io/dronegarden" target="_blank" class="work__button" style="display: inline-flex; align-items: center; column-gap: .25rem; margin-top: 0.5rem; color: white;">
+                            Jouer au jeu <i class='bx bx-link-external'></i>
+                        </a>
+                    </div>
+
+                    <p class="services__modal-info" style="margin-top: 1.5rem; font-size: var(--small-font-size); opacity: 0.7;">
+                        <strong>Technologies :</strong> Unity 3D, C#, ScriptableObjects, Raycasting, Particles System, WebGL.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+          <!-- Carte projet -->
+          <div class="work__card mix prototype">
+            <!-- Image du projet -->
+            <img src="assets/img/Projet/AltF42.png" alt="Illustration du projet Alt F42" class="work__img">
+
+            <!-- Titre -->
+            <h3 class="work__title">AltF42</h3>
+
+            <!-- Bouton d’ouverture de la modale -->
+            <span class="work__button-modal">
+                Voir plus <i class='bx bx-right-arrow-alt services__icon'></i>
+            </span>
+
+            <!-- Modale -->
+            <div class="work__modal">
+                <div class="services__modal-content dark-theme">
+
+                <!-- Bouton fermeture -->
+                <i class='bx bx-x work__modal-close'></i>
+
+                <!-- Titre -->
+                <h3 class="services__modal-title">Alt F42</h3>
+
+                <!-- Liste structurée -->
+                <ul class="services__modal-list">
+
+                    <li class="services__modal-item">                  
+                    <p class="services__modal-info"><strong>Démonstration technique :</strong> Alt F42 est un jeu inspiré d’un rogue-lite low poly. Le projet a été transformé en démo technique en raison de contraintes de temps.</p>
+                    </li>
+
+                    <li class="services__modal-item">                    
+                    <p class="services__modal-info"><strong>Concept :</strong> Vous incarnez un chevalier dans un labyrinthe généré procéduralement, affrontant des squelettes magiciens, archers ou guerriers.</p>
+                    </li>
+
+                    <li class="services__modal-item">                   
+                    <p class="services__modal-info"><strong>Gameplay :</strong> Deux armes disponibles : épée ou hache. Chaque choix offre des avantages stratégiques et une rejouabilité différente.</p>
+                    </li>
+
+                    <li class="services__modal-item">                    
+                    <p class="services__modal-info"><strong>Graphismes :</strong> Style low poly pensé pour la performance et une empreinte carbone réduite.</p>
+                    </li>
+
+                    <li class="services__modal-item">                    
+                    <p class="services__modal-info"><strong>Objectif :</strong> Survivre, progresser dans le labyrinthe, et améliorer son équipement au fil des parties.</p>
+                    </li>
+<!-- 
+                    <li class="services__modal-item">
+                    <p class="services__modal-info">
+                        <a class="work__button" target="_blank" href="#">
+                        Voir le projet complet <i class='bx bx-right-arrow-alt services__icon'></i>
+                        </a>
+                    </p>
+                    </li> -->
+
+                </ul>
+                </div>
+            </div>
+        </div> <!-- Fin de carte individuel -->
+
+          <!-- Carte projet -->
+        <div class="work__card mix prototype">
+            <!-- Image d'illustration du projet -->
+            <img src="assets/img/Projet/HiddenS.png" alt="Illustration du projet" class="work__img">
+
+            <!-- Titre du projet -->
+            <h3 class="work__title">Hidden Shadow</h3>
+
+            <!-- Bouton pour afficher plus d'infos sur le projet -->
+            <span class="work__button-modal">
+                Voir plus <i class='bx bx-right-arrow-alt services__icon'></i>
+            </span>
+
+            <!-- Bloc de détails du projet -->
+             <div class="work__modal">
+                <div class="services__modal-content dark-theme">
+                <!-- Bouton fermeture -->
+                <i class='bx bx-x work__modal-close'></i>
+
+                <h3 class="services__modal-title">Hidden Shadow</h3>
+
+                <ul class="services__modal-list">
+
+                    <li class="services__modal-item">
+                    <p class="services__modal-info">
+                        <strong>Nom du jeu :</strong> Hidden Shadow — jeu d’infiltration créé dans un cadre universitaire autour de la thématique d’un <strong>jeu vidéo écoresponsable</strong>.
+                    </p>
+                    </li>
+
+                    <li class="services__modal-item">
+                    <p class="services__modal-info">
+                        <strong>Concept :</strong> Incarnez une espionne chargée de récupérer des documents confidentiels liés aux <em>émissions de CO₂</em> des entreprises. L’objectif est de dénoncer les abus environnementaux tout en sensibilisant les joueurs.
+                    </p>
+                    </li>
+
+                    <li class="services__modal-item">
+                    <p class="services__modal-info">
+                        <strong>Gameplay :</strong> Deux phases d’infiltration (extérieure puis intérieure). Le joueur doit éviter d’être repéré par des gardes réactifs au bruit et à la visibilité. Actions disponibles : marcher, courir, s'accroupir, tirer.
+                    </p>
+                    </li>
+
+                    <li class="services__modal-item">
+                    <p class="services__modal-info">
+                        <strong>Objectif :</strong> Récupérer les documents et atteindre le point de retrait sans être détecté. Chaque niveau introduit de nouveaux défis pour offrir une expérience immersive.
+                    </p>
+                    </li>
+
+                    <li class="services__modal-item">
+                    <p class="services__modal-info">
+                        <strong>Approche écoresponsable :</strong> Le scénario met en lumière les impacts écologiques des grandes entreprises. Le jeu pousse à la réflexion individuelle et collective autour de la préservation de l’environnement.
+                    </p>
+                    </li>
+
+                    <!-- Lien projet  -->
+                    <!-- <li class="services__modal-item">
+                    <p class="services__modal-info">
+                        <a class="work__button" target="_blank" href="#">
+                        Voir le projet complet <i class='bx bx-right-arrow-alt services__icon'></i>
+                        </a>
+                    </p>
+                    </li> -->
+
+                </ul>
+                </div>
+            </div>
+        </div> <!-- Fin de carte individuel -->
+
+          <!-- Carte projet -->
+        <div class="work__card mix prototype">
+            <!-- Image d'illustration du projet -->
+            <img src="assets/img/Projet/RemindR.png" alt="Illustration du projet" class="work__img">
+
+            <!-- Titre du projet -->
+            <h3 class="work__title">RemindR</h3>
+
+            <!-- Bouton pour afficher plus d'infos sur le projet -->
+            <span class="work__button-modal">
+                Voir plus <i class='bx bx-right-arrow-alt services__icon'></i>
+            </span>
+
+            <!-- Bloc de détails du projet -->
+            <div class="work__modal">
+                <div class="services__modal-content dark-theme">
+                <!-- Fermeture -->
+                <i class='bx bx-x work__modal-close'></i>
+
+                <h3 class="services__modal-title">RemindR</h3>
+
+                <ul class="services__modal-list">
+
+                    <li class="services__modal-item">
+                    <p class="services__modal-info">
+                        <strong>Nom de l'application :</strong> RemindR — application web de rappel développée dans le cadre d’un projet universitaire.
+                    </p>
+                    </li>
+
+                    <li class="services__modal-item">
+                    <p class="services__modal-info">
+                        <strong>Objectif :</strong> Permettre aux utilisateurs de créer et gérer des rappels personnalisés afin de mieux organiser leurs tâches quotidiennes.
+                    </p>
+                    </li>
+
+                    <li class="services__modal-item">
+                    <p class="services__modal-info">
+                        <strong>Fonctionnalités principales :</strong>
+                        <ul class="services__modal-sublist">
+                        <li><strong>Création de profil</strong> : pseudo, e-mail, mot de passe.</li>
+                        <li><strong>Authentification</strong> : connexion sécurisée avec identifiants.</li>
+                        <li><strong>Gestion des rappels</strong> : ajout, édition, suppression ; avec statut et date limite.</li>
+                        <li><strong>Groupes collaboratifs</strong> : créer/partager des rappels avec d'autres utilisateurs.</li>
+                        <li><strong>Tableau de bord</strong> : vue globale des rappels personnels et partagés.</li>
+                        </ul>
+                    </p>
+                    </li>
+
+                    <li class="services__modal-item">
+                    <p class="services__modal-info">
+                        RemindR combine simplicité d’usage et gestion collaborative, favorisant l’organisation et la productivité des utilisateurs via une interface claire.
+                    </p>
+                    </li>
+
+                    <!-- Lien externe -->
+                    <!-- <li class="services__modal-item">
+                    <p class="services__modal-info">
+                        <a class="work__button" target="_blank" href="#">
+                        Voir le projet complet <i class='bx bx-right-arrow-alt services__icon'></i>
+                        </a>
+                    </p>
+                    </li> -->
+
+                </ul>
+                </div>
+            </div>
+        </div> <!-- Fin de carte individuel -->
+
+          <!-- Carte projet -->
           <div class="work__card mix prototype">
               <!-- Image d'illustration du projet -->
               <img src="assets/img/Projet/Papillon.png" alt="Illustration du projet" class="work__img">
@@ -331,136 +682,7 @@
 </div>
           </div> <!-- Fin de carte individuel -->
 
-
-          <!-- Carte individuelle d'un projet -->
-          <div class="work__card mix prototype">
-            <!-- Image du projet -->
-            <img src="assets/img/Projet/AltF42.png" alt="Illustration du projet Alt F42" class="work__img">
-
-            <!-- Titre -->
-            <h3 class="work__title">AltF42</h3>
-
-            <!-- Bouton d’ouverture de la modale -->
-            <span class="work__button-modal">
-                Voir plus <i class='bx bx-right-arrow-alt services__icon'></i>
-            </span>
-
-            <!-- Modale -->
-            <div class="work__modal">
-                <div class="services__modal-content dark-theme">
-
-                <!-- Bouton fermeture -->
-                <i class='bx bx-x work__modal-close'></i>
-
-                <!-- Titre -->
-                <h3 class="services__modal-title">Alt F42</h3>
-
-                <!-- Liste structurée -->
-                <ul class="services__modal-list">
-
-                    <li class="services__modal-item">                  
-                    <p class="services__modal-info"><strong>Démonstration technique :</strong> Alt F42 est un jeu inspiré d’un rogue-lite low poly. Le projet a été transformé en démo technique en raison de contraintes de temps.</p>
-                    </li>
-
-                    <li class="services__modal-item">                    
-                    <p class="services__modal-info"><strong>Concept :</strong> Vous incarnez un chevalier dans un labyrinthe généré procéduralement, affrontant des squelettes magiciens, archers ou guerriers.</p>
-                    </li>
-
-                    <li class="services__modal-item">                   
-                    <p class="services__modal-info"><strong>Gameplay :</strong> Deux armes disponibles : épée ou hache. Chaque choix offre des avantages stratégiques et une rejouabilité différente.</p>
-                    </li>
-
-                    <li class="services__modal-item">                    
-                    <p class="services__modal-info"><strong>Graphismes :</strong> Style low poly pensé pour la performance et une empreinte carbone réduite.</p>
-                    </li>
-
-                    <li class="services__modal-item">                    
-                    <p class="services__modal-info"><strong>Objectif :</strong> Survivre, progresser dans le labyrinthe, et améliorer son équipement au fil des parties.</p>
-                    </li>
-<!-- 
-                    <li class="services__modal-item">
-                    <p class="services__modal-info">
-                        <a class="work__button" target="_blank" href="#">
-                        Voir le projet complet <i class='bx bx-right-arrow-alt services__icon'></i>
-                        </a>
-                    </p>
-                    </li> -->
-
-                </ul>
-                </div>
-            </div>
-        </div> <!-- Fin de carte individuel -->
-
-
-
-        <!-- Carte individuelle d'un projet -->
-        <div class="work__card mix prototype">
-            <!-- Image d'illustration du projet -->
-            <img src="assets/img/Projet/HiddenS.png" alt="Illustration du projet" class="work__img">
-
-            <!-- Titre du projet -->
-            <h3 class="work__title">Hidden Shadow</h3>
-
-            <!-- Bouton pour afficher plus d'infos sur le projet -->
-            <span class="work__button-modal">
-                Voir plus <i class='bx bx-right-arrow-alt services__icon'></i>
-            </span>
-
-            <!-- Bloc de détails du projet -->
-             <div class="work__modal">
-                <div class="services__modal-content dark-theme">
-                <!-- Bouton fermeture -->
-                <i class='bx bx-x work__modal-close'></i>
-
-                <h3 class="services__modal-title">Hidden Shadow</h3>
-
-                <ul class="services__modal-list">
-
-                    <li class="services__modal-item">
-                    <p class="services__modal-info">
-                        <strong>Nom du jeu :</strong> Hidden Shadow — jeu d’infiltration créé dans un cadre universitaire autour de la thématique d’un <strong>jeu vidéo écoresponsable</strong>.
-                    </p>
-                    </li>
-
-                    <li class="services__modal-item">
-                    <p class="services__modal-info">
-                        <strong>Concept :</strong> Incarnez une espionne chargée de récupérer des documents confidentiels liés aux <em>émissions de CO₂</em> des entreprises. L’objectif est de dénoncer les abus environnementaux tout en sensibilisant les joueurs.
-                    </p>
-                    </li>
-
-                    <li class="services__modal-item">
-                    <p class="services__modal-info">
-                        <strong>Gameplay :</strong> Deux phases d’infiltration (extérieure puis intérieure). Le joueur doit éviter d’être repéré par des gardes réactifs au bruit et à la visibilité. Actions disponibles : marcher, courir, s'accroupir, tirer.
-                    </p>
-                    </li>
-
-                    <li class="services__modal-item">
-                    <p class="services__modal-info">
-                        <strong>Objectif :</strong> Récupérer les documents et atteindre le point de retrait sans être détecté. Chaque niveau introduit de nouveaux défis pour offrir une expérience immersive.
-                    </p>
-                    </li>
-
-                    <li class="services__modal-item">
-                    <p class="services__modal-info">
-                        <strong>Approche écoresponsable :</strong> Le scénario met en lumière les impacts écologiques des grandes entreprises. Le jeu pousse à la réflexion individuelle et collective autour de la préservation de l’environnement.
-                    </p>
-                    </li>
-
-                    <!-- Lien projet  -->
-                    <!-- <li class="services__modal-item">
-                    <p class="services__modal-info">
-                        <a class="work__button" target="_blank" href="#">
-                        Voir le projet complet <i class='bx bx-right-arrow-alt services__icon'></i>
-                        </a>
-                    </p>
-                    </li> -->
-
-                </ul>
-                </div>
-            </div>
-        </div> <!-- Fin de carte individuel -->
-
-        <!-- Carte individuelle d'un projet -->
+          <!-- Carte projet -->
         <div class="work__card mix prototype">
             <!-- Image d'illustration du projet -->
             <img src="assets/img/Projet/Rabbit.png" alt="Illustration du projet" class="work__img">
@@ -521,147 +743,6 @@
             </div>
         </div> <!-- Fin de carte individuel -->
 
-        <!-- Carte individuelle d'un projet -->
-        <div class="work__card mix prototype">
-            <!-- Image d'illustration du projet -->
-            <img src="assets/img/Projet/RemindR.png" alt="Illustration du projet" class="work__img">
-
-            <!-- Titre du projet -->
-            <h3 class="work__title">Remindr</h3>
-
-            <!-- Bouton pour afficher plus d'infos sur le projet -->
-            <span class="work__button-modal">
-                Voir plus <i class='bx bx-right-arrow-alt services__icon'></i>
-            </span>
-
-            <!-- Bloc de détails du projet -->
-            <div class="work__modal">
-                <div class="services__modal-content dark-theme">
-                <!-- Fermeture -->
-                <i class='bx bx-x work__modal-close'></i>
-
-                <h3 class="services__modal-title">RemindR</h3>
-
-                <ul class="services__modal-list">
-
-                    <li class="services__modal-item">
-                    <p class="services__modal-info">
-                        <strong>Nom de l'application :</strong> RemindR — application web de rappel développée dans le cadre d’un projet universitaire.
-                    </p>
-                    </li>
-
-                    <li class="services__modal-item">
-                    <p class="services__modal-info">
-                        <strong>Objectif :</strong> Permettre aux utilisateurs de créer et gérer des rappels personnalisés afin de mieux organiser leurs tâches quotidiennes.
-                    </p>
-                    </li>
-
-                    <li class="services__modal-item">
-                    <p class="services__modal-info">
-                        <strong>Fonctionnalités principales :</strong>
-                        <ul class="services__modal-sublist">
-                        <li><strong>Création de profil</strong> : pseudo, e-mail, mot de passe.</li>
-                        <li><strong>Authentification</strong> : connexion sécurisée avec identifiants.</li>
-                        <li><strong>Gestion des rappels</strong> : ajout, édition, suppression ; avec statut et date limite.</li>
-                        <li><strong>Groupes collaboratifs</strong> : créer/partager des rappels avec d'autres utilisateurs.</li>
-                        <li><strong>Tableau de bord</strong> : vue globale des rappels personnels et partagés.</li>
-                        </ul>
-                    </p>
-                    </li>
-
-                    <li class="services__modal-item">
-                    <p class="services__modal-info">
-                        RemindR combine simplicité d’usage et gestion collaborative, favorisant l’organisation et la productivité des utilisateurs via une interface claire.
-                    </p>
-                    </li>
-
-                    <!-- Lien externe -->
-                    <!-- <li class="services__modal-item">
-                    <p class="services__modal-info">
-                        <a class="work__button" target="_blank" href="#">
-                        Voir le projet complet <i class='bx bx-right-arrow-alt services__icon'></i>
-                        </a>
-                    </p>
-                    </li> -->
-
-                </ul>
-                </div>
-            </div>
-        </div> <!-- Fin de carte individuel -->
-
-
-        <div class="work__card mix prototype">
-            <img src="assets/img/Projet/DroneGarden.png" alt="Drone Garden Technical View" class="work__img">
-
-            <h3 class="work__title">Drone Garden | Jeu de Gestion 3D (Unity)</h3>
-
-            <span class="work__button-modal">
-                Voir plus <i class='bx bx-right-arrow-alt services__icon'></i>
-            </span>
-
-            <div class="work__modal">
-                <div class="services__modal-content dark-theme">
-                    <i class='bx bx-x work__modal-close'></i>
-
-                    <h3 class="services__modal-title">Drone Garden : Engineering & Release</h3>
-
-                    <h4 style="color: var(--first-color); margin-bottom: 0.8rem;">Concept & Boucle de Gameplay</h4>
-                    <p class="services__modal-info">
-                        Gestion horticole futuriste : le joueur pilote un drone et doit optimiser la plantation et la récolte via un système de score. L'enjeu repose sur la <strong>gestion de l'urgence</strong> : les légumes non récoltés explosent, créant une pénalité et une perte de ressources.
-                    </p>
-
-                    <h4 style="color: var(--first-color); margin: 1.5rem 0 0.8rem;">Architecture & Systèmes Avancés</h4>
-                    <ul class="services__modal-list">
-                        <li class="services__modal-item">
-                            <!-- <i class='bx bx-chip services__modal-icon'></i> -->
-                            <p class="services__modal-info">
-                                <strong>Finite State Machine (FSM) :</strong> Système d'états complexe pilotant les cycles de vie (Seed > Sprout > Mature > Overripe > Explode). Chaque transition est gérée par des événements pour déclencher feedbacks visuels et sonores de manière synchronisée.
-                            </p>
-                        </li>
-                        <li class="services__modal-item">
-                            <!-- <i class='bx bx-data services__modal-icon'></i> -->
-                            <p class="services__modal-info">
-                                <strong>Data-Driven (ScriptableObjects) :</strong> Centralisation des propriétés des végétaux (vitesse de pousse, valeur, meshs) permettant de modifier l'équilibrage du jeu sans altérer le code source.
-                            </p>
-                        </li>
-                        <li class="services__modal-item">
-                            <!-- <i class='bx bx-target-lock services__modal-icon'></i> -->
-                            <p class="services__modal-info">
-                                <strong>Système d'Interaction :</strong> Implémentation du <strong>Raycasting</strong> avec filtrage de LayerMasks pour une détection précise des parcelles et une gestion fluide des actions contextuelles du drone.
-                            </p>
-                        </li>
-                    </ul>
-
-                    <h4 style="color: var(--first-color); margin: 1.5rem 0 0.8rem;">UI & Pipeline de Production</h4>
-                    <ul class="services__modal-list">
-                        <li class="services__modal-item">
-                            <!-- <i class='bx bx-layer services__modal-icon'></i> -->
-                            <p class="services__modal-info">
-                                <strong>Système d'UI Modulaire :</strong> HUD dynamique, menus de pause et écrans de fin de partie conçus avec le Canvas System d'Unity, décorrélés de la logique de jeu (Pattern Observer).
-                            </p>
-                        </li>
-                        <li class="services__modal-item">
-                            <!-- <i class='bx bx-git-branch services__modal-icon'></i> -->
-                            <p class="services__modal-info">
-                                <strong>Workflow :</strong> Gestion de projet via <strong>Git</strong> (commits atomiques) et optimisation des ressources (LOD, compression des textures) pour une version WebGL fluide.
-                            </p>
-                        </li>
-                    </ul>
-
-                    <div style="margin-top: 2rem; padding: 1rem; border: 1px dashed var(--first-color); border-radius: 0.5rem; text-align: center;">
-                        <h4 style="margin-bottom: 0.5rem;">Disponible sur Itch.io</h4>
-                        <p class="services__modal-info">Le projet a été mené jusqu'à la publication d'une version jouable.</p>
-                        <a href="https://zarkgish.itch.io/dronegarden" target="_blank" class="work__button" style="display: inline-flex; align-items: center; column-gap: .25rem; margin-top: 0.5rem; color: white;">
-                            Jouer au jeu <i class='bx bx-link-external'></i>
-                        </a>
-                    </div>
-
-                    <p class="services__modal-info" style="margin-top: 1.5rem; font-size: var(--small-font-size); opacity: 0.7;">
-                        <strong>Technologies :</strong> Unity 3D, C#, ScriptableObjects, Raycasting, Particles System, WebGL.
-                    </p>
-                </div>
-            </div>
-        </div>
       </div> <!-- Fin de .work__container -->
     </section> <!-- Fin de la section Portfolio -->
 
@@ -678,10 +759,19 @@
 
             <div class="experience__card">
                 <span class="experience__tag">Stage</span>
+                <h3 class="experience__title">Développeur Full Stack – BIWAPI</h3>
+                <span class="experience__date">Avril – juillet 2026</span>
+                <p class="experience__desc">
+                Conception et développement, de zéro jusqu'à la mise en production, d'une application web de gestion pour le Club des Entrepreneurs Augmentés. Stack React, TypeScript et Supabase (PostgreSQL).
+                </p>
+            </div>
+
+            <div class="experience__card">
+                <span class="experience__tag">Stage</span>
                 <h3 class="experience__title">Développeur Java – Seedle</h3>
                 <span class="experience__date">Avril – Mai 2025</span>
                 <p class="experience__desc">
-                Création d'une application web de gestion de recommendation pour la pépinière EntrePro. Développement en Java avec Vaadin,    PostgreSQL.
+                Création d'une application web de gestion de recommandation pour la pépinière EntrePro. Développement en Java avec Vaadin et PostgreSQL.
                 </p>
             </div>
 
@@ -699,7 +789,7 @@
                 <h3 class="experience__title">Bac Général – Lycée Simone Weil</h3>
                 <span class="experience__date">2019 – 2022</span>
                 <p class="experience__desc">
-                Spécialités science economique et sociale et Numérique & Sciences Informatiques.
+                Spécialités Sciences économiques et sociales, et Numérique & Sciences informatiques.
                 </p>
             </div>
 
@@ -781,10 +871,3 @@
     <script src="./js/scripts.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-

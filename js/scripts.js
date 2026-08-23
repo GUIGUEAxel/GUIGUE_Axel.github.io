@@ -1,32 +1,37 @@
 //Animation menu
 
 const sections = document.querySelectorAll('section[id]')
-    
-const scrollActive = () =>{
-  	const scrollY = window.pageYOffset
+const navLinks = document.querySelectorAll('.nav__menu a[href^="#"]')
 
+const scrollActive = () =>{
+	const scrollY = window.pageYOffset
+	const offset = 100 // hauteur du header + petite marge
+	let currentId = ''
+
+	// On garde la DERNIÈRE section dont le haut est passé au-dessus du scroll :
+	// il n'y a donc jamais qu'une seule section "courante".
 	sections.forEach(current =>{
-		const sectionHeight = current.offsetHeight,
-			  sectionTop = current.offsetTop - 58,
-			  sectionId = current.getAttribute('id'),
-			  sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
-		
-		
-		if (!sectionsClass) return;
-		
-		if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-			sectionsClass.classList.add('active-link')
-		}else if(sectionId === 'contact' &&
-            (window.innerHeight + scrollY) >= (document.documentElement.scrollHeight - 5)
-        ){
-            // if we're at the very bottom, ensure contact link is active
-            sectionsClass.classList.add('active-link')
-        }else{
-            sectionsClass.classList.remove('active-link')
-        }                                                    
+		const sectionTop = current.offsetTop - offset
+		if (scrollY >= sectionTop){
+			currentId = current.getAttribute('id')
+		}
+	})
+
+	// Cas particulier : tout en bas de page, on force la dernière section (contact).
+	if ((window.innerHeight + scrollY) >= (document.documentElement.scrollHeight - 5)){
+		currentId = sections[sections.length - 1].getAttribute('id')
+	}
+
+	// On réinitialise puis on active uniquement le bon lien.
+	navLinks.forEach(link =>{
+		link.classList.remove('active-link')
+		if (link.getAttribute('href') === '#' + currentId){
+			link.classList.add('active-link')
+		}
 	})
 }
 window.addEventListener('scroll', scrollActive)
+scrollActive() // état correct dès le chargement
 // Fin animation menu
 
 // On sélectionne tous les éléments nécessaires

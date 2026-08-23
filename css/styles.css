@@ -9,8 +9,8 @@
     --first-color: hsl(var(--first-hue), var(--sat), var(--lig));
     --first-color-alt: hsl(var(--first-hue), var(--sat), 75%); /* -5% */
     --title-color: hsl(var(--second-hue), 15%, 95%);
-    --text-color: hsl(var(--second-hue), 15%, 65%);
-    --text-color-light: hsl(var(--second-hue), 10%, 45%);
+    --text-color: hsl(var(--second-hue), 15%, 76%);
+    --text-color-light: hsl(var(--second-hue), 12%, 62%);
     --body-color: hsl(var(--second-hue), 0%, 12%);
     --container-color: hsl(var(--second-hue), 30%, 18%);
     --body-font: 'Poppins', sans-serif;
@@ -50,7 +50,7 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: var(--body-font);
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -156,7 +156,7 @@ nav ul li a:hover {
 @media screen and (min-width: 576px) {
      /* Style du menu de navigation sur grands écrans */
     .nav__menu {
-        width: 328px;
+        width: 400px;
         left: 0;
         right: 0;
         margin: 0 auto;
@@ -770,4 +770,272 @@ nav ul li a:hover {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+
+/* =====================================================================
+   AMÉLIORATIONS SOUTENANCE
+   Bloc ajouté en fin de fichier (prioritaire dans la cascade).
+   Regroupé ici pour être facile à relire ou à retirer d'un bloc.
+   ===================================================================== */
+
+/* --- Navigation fluide + décalage sous le header fixe --- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+/* --- Titres de section plus affirmés + trait d'accent --- */
+.section__subtitle {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: var(--font-medium);
+  margin-bottom: .25rem;
+}
+.section__title {
+  font-size: var(--biggest-font-size);
+  position: relative;
+  padding-bottom: .9rem;
+  margin-bottom: .5rem;
+}
+.section__title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--first-color);
+}
+
+/* --- Rythme vertical homogène entre les sections --- */
+.About,
+.Competance,
+.Portfolio,
+.Experience,
+.Contact {
+  padding-top: 4rem;
+  padding-bottom: 1rem;
+}
+
+/* --- HERO : visuel des initiales --- */
+.home__image {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.75rem;
+}
+.home__initials {
+  position: relative;
+  background: linear-gradient(145deg,
+              hsl(var(--first-hue), var(--sat), var(--lig)),
+              hsl(var(--second-hue), var(--sat), 55%));
+  box-shadow: 0 0 0 8px hsla(var(--first-hue), var(--sat), var(--lig), .12),
+              0 14px 40px hsla(var(--first-hue), var(--sat), var(--lig), .35);
+  animation: floatAvatar 4s ease-in-out infinite;
+}
+@keyframes floatAvatar {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+
+/* --- NAV : libellé au survol de chaque icône (issu de aria-label) --- */
+.nav__link {
+  position: relative;
+  transition: color .3s;
+}
+.nav__link:hover {
+  color: var(--first-color);
+}
+.nav__link::after {
+  content: attr(aria-label);
+  position: absolute;
+  bottom: 135%;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--container-color);
+  color: var(--title-color);
+  font-size: var(--smaller-font-size);
+  padding: .25rem .6rem;
+  border-radius: .4rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease, transform .25s ease;
+}
+.nav__link:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* --- CARTES PROJET : interactions cohérentes avec le reste du site --- */
+/* NB : pas de transform sur la carte -> sinon la modale (enfant, position:fixed)
+   se retrouve piégée dans la carte. L'effet de relief passe par l'ombre. */
+.work__card {
+  border: 1px solid transparent;
+  transition: box-shadow .3s ease, border-color .3s ease;
+}
+.work__card:hover {
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .5);
+  border-color: hsla(var(--first-hue), var(--sat), var(--lig), .55);
+}
+.work__img {
+  transition: transform .45s ease;
+}
+.work__card:hover .work__img {
+  transform: scale(1.04);
+}
+.work__title {
+  color: var(--title-color);
+  font-size: var(--h3-font-size);
+  margin-bottom: .25rem;
+}
+.work__card:hover .work__button-modal {
+  color: var(--first-color-alt);
+}
+
+/* --- Boutons : petit feedback au survol --- */
+.home__button,
+.contact__button,
+.work__button {
+  transition: transform .2s ease, background-color .3s ease, color .3s ease;
+}
+.home__button:hover {
+  transform: translateY(-2px);
+}
+
+/* --- FOOTER : transition plus douce depuis le thème sombre --- */
+.footer {
+  border-top: 4px solid var(--first-color);
+}
+
+/* --- Barre de défilement assortie au thème (détail visible en démo) --- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--body-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--container-color);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--first-color);
+}
+
+
+/* =====================================================================
+   CORRECTIONS v2 — header, contraste modales, lisibilité
+   ===================================================================== */
+
+/* --- HEADER : tout garder dans la barre + marges latérales --- */
+.nav {
+  padding: 0 1.5rem;
+}
+.nav > img {           /* le logo faisait 100px et débordait du header (3.5rem) */
+  height: 4.5rem;
+  width: auto;
+}
+.nav__logo {
+  font-weight: var(--font-semibold);
+  font-size: var(--h3-font-size);
+}
+
+/* --- MODALES PROJET : structure claire et lisible --- */
+.services__modal-content.dark-theme {
+  width: 720px;
+  padding: 2.25rem 2rem 2rem;
+}
+
+.services__modal-title {
+  font-size: var(--h2-font-size);
+  color: var(--first-color);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: .9rem;
+  border-bottom: 1px solid hsla(var(--first-hue), var(--sat), var(--lig), .35);
+}
+
+/* Sous-titres internes (h4), y compris ceux stylés en inline dans le HTML */
+.services__modal-content.dark-theme h4 {
+  color: var(--first-color) !important;
+  font-size: var(--h3-font-size);
+  margin: 1.5rem 0 .6rem !important;
+}
+
+/* Liste : plus de puces par défaut, chaque point devient une "carte" */
+.services__modal-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .85rem;
+  margin: 0;
+  padding: 0;
+}
+.services__modal-item {
+  background: hsla(var(--second-hue), 30%, 20%, .55);
+  border-left: 3px solid var(--first-color);
+  border-radius: .5rem;
+  padding: .85rem 1rem;
+}
+.services__modal-info {
+  color: var(--title-color);
+  font-size: var(--small-font-size);
+  line-height: 1.65;
+}
+/* Les libellés (Concept :, Gameplay :, ...) ressortent en couleur d'accent */
+.services__modal-content.dark-theme .services__modal-info strong {
+  color: var(--first-color-alt);
+}
+
+/* Sous-listes à puces, bien indentées */
+.services__modal-sublist {
+  list-style: disc;
+  margin: .5rem 0 0 1.25rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+}
+.services__modal-sublist li {
+  line-height: 1.5;
+}
+
+/* Encadré "Disponible sur Itch.io" (Drone Garden) harmonisé */
+.services__modal-content.dark-theme .work__button {
+  color: var(--title-color);
+}
+
+/* Barre de défilement interne à la modale */
+.services__modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+.services__modal-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.services__modal-content::-webkit-scrollbar-thumb {
+  background: var(--first-color);
+  border-radius: 8px;
+}
+
+.work__desc {
+  color: var(--text-color);
+  font-size: var(--small-font-size);
+  margin: .1rem 0 .6rem;
+}
+.work__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin-bottom: .5rem;
+}
+.work__tag {
+  font-size: var(--smaller-font-size);
+  color: var(--first-color-alt);
+  background: hsla(var(--first-hue), var(--sat), var(--lig), .15);
+  border: 1px solid hsla(var(--first-hue), var(--sat), var(--lig), .4);
+  padding: .15rem .55rem;
+  border-radius: 1rem;
 }
