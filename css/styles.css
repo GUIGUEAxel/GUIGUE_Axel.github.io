@@ -935,7 +935,7 @@ html {
   padding: 0 1.5rem;
 }
 .nav > img {           /* le logo faisait 100px et débordait du header (3.5rem) */
-  height: 3.5rem;
+  height: 4.5rem;
   width: auto;
 }
 .nav__logo {
