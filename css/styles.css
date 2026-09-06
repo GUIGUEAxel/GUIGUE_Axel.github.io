@@ -1025,6 +1025,9 @@ body.modal-open {
   background: var(--first-color);
   border-radius: 8px;
 }
+
+
+/* --- CARTES PROJET : description courte + tags de technologies --- */
 .work__desc {
   color: var(--text-color);
   font-size: var(--small-font-size);
@@ -1034,7 +1037,7 @@ body.modal-open {
   display: flex;
   flex-wrap: wrap;
   gap: .4rem;
-  margin-bottom: .5rem;
+  margin-bottom: .6rem;
 }
 .work__tag {
   font-size: var(--smaller-font-size);
@@ -1043,4 +1046,14 @@ body.modal-open {
   border: 1px solid hsla(var(--first-hue), var(--sat), var(--lig), .4);
   padding: .15rem .55rem;
   border-radius: 1rem;
+}
+
+
+/* --- CARTES PROJET : alignement / espace pris homogène --- */
+.work__button-modal {
+  margin-top: auto;        /* pousse "Voir plus" tout en bas de chaque carte */
+  padding-top: .5rem;
+}
+.work__desc {
+  min-height: 2.6em;       /* réserve ~2 lignes -> les tags s'alignent entre cartes */
 }
